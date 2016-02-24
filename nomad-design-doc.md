@@ -1,4 +1,5 @@
-# Nomad - Design Document
+# Nomad - Game Design Document
+This document contains details of the game design for Nomad.
 
 ## Contents
 * Overview
@@ -60,7 +61,7 @@ A player's interactions with the world center around giving their team's units
 orders to carry out. You act as an invisible god over the land and your
 population.
 
-#### .Resources
+##### Resources
 Four resources must be collected, managed and spent by each player:
 - Wood
   - Areas of the land are often covered by dense regions of forest.  villagers
@@ -86,18 +87,18 @@ Some implicit, less obvious resources are also:
 Gathering resources will enable you to build new buildings, train your villagers
 and research new technologies.
 
-##### .Expansion
+##### Expansion
 Buildings generate a field of influence in their immediate surroundings.  New
 buildings can only be placed within the radius of another building.  In this
 way, players must slowly spread and expand across the map.
 
-##### .Fog of war
+##### Fog of war
 Land that has not yet entered the field of view of a player's unit is shrouded
 from view by 'Fog of War', a mechanic shared by many RTS games.  As land becomes
 visible to a player's unit the fog of war is lifted and any activity in that
 region is directly shown.
 
-#### . Skirmish game
+##### Skirmish game
 In a skirmish match, the objective is total control of the land.  Your opponents
 must be conquered and wiped out.
 
@@ -145,7 +146,6 @@ rule in place border skirmishes will become an important aspect of game play.
   good for gameplay.
 
 
-
 ----
 ## Unit Classes
 
@@ -173,7 +173,7 @@ All units start off life as a villager produced by a house.  These villagers can
 take on different roles and be trained to different classes.  The following list
 details the possible units that can be created:
 
-#### .Villager
+##### Villager
 All units start out as villagers and can be guided into different roles.  Some
 roles require now special training and are listed immediately below.  With
 special training at the Barracks or Archery range villagers can become Archers
@@ -189,20 +189,23 @@ or Swordsmen.
     - An iron miner carries a pickaxe and will mine iron deposits to provide
       their player with the iron resource.
 
-#### .Archer
+##### Archer
 An Archer carries a bow and arrow bolts and is restricted to ranged attacks
 against enemy units.
 
-#### .Swordsman
+##### Swordsman
+Swordsmen carry short swords and shields and have good defense and cause melee
+damage.
 
-#### .Farmer
+##### Farmer
 A villager assigned to a farm becomes a farmer and will provide the food
 resource over time.
 
-#### .Instructor
+##### Instructor
 A unit with a high skill level may be placed in the Barracks or Archery range
 as an instructor.  When this is done all graduates will have a skill level of
 (instructor-1).
+
 
 ----
 ## Progression
@@ -266,6 +269,7 @@ Many different kinds of buildings may be constructed as part of a village:
 > - Docks
     - Villagers may be sent into the docks to produce boats.
 
+
 ----
 ## Battle Mechanics
 Battles are initiated when one player brings their units into range of an
@@ -285,6 +289,7 @@ circle of influence to move to their location.
 
 > Rally points should have some kind of associated cost perhaps
 
+
 ----
 ## User Interface
 Users will interact with the game using a keyboard and mouse.  The game will be
@@ -294,10 +299,17 @@ Players can pick up their units by left clicking on them with the mouse.  Units
 that have been picked up may be dropped at the current mouse location using the
 right mouse button.
 
-The interactive screen elements that overlay the game world are:
+User interface layer:
 - Mini map
 - Blueprint menu
 - Current resources
 - Message stream
 - Currently picked up units
 - Rally point menu
+
+User input interactions:
+- Pickup/Drop unit
+- Place/Remove blueprint
+- Destroy building
+- Scroll view port
+- Place/Remove rally point
