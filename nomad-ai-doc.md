@@ -23,3 +23,28 @@ Some of these modules may provide game types, player interfaces or new computer
 players.  This would allow Nomad to provide multiple different computer
 opponents, perhaps each with their own strengths, weaknesses, play styles etc.
 For the base version however only one computer opponent is planned.
+
+
+----
+# Basic architecture
+The first AI will use some fairly tried and tested techniques to get up and
+running.  A blackboard architecture will be implemented with various knowledge
+sources informing the backboard of opportunity.  An arbiter will score these
+opportunities and undertake them as an action.
+
+Knowledge sources can be inserted or removed with little disruption to the main
+blackboard system.
+
+
+----
+## Areas of research
+##### Neural Net
+Since the game state can be recorded, A neural network could be trained on
+recordings of real players.  An application area would be to have a neural net
+analyze a players influence map, and make predictions about future game states.
+
+##### Genetics
+In the basic AI architecture, the blackboard and arbiter system will rely on
+various hand tuned scoring systems.  An interesting idea is to adjust these
+values using a genetic algorithm, similar to John Van Wavren's seminal work on
+Quake 3.  Different AI personalities could be extracted.

@@ -9,6 +9,7 @@ This document contains details of the game design for Nomad.
 * Village Building
 * Unit Control
 * Unit Classes
+* Spells
 * Progression
 * Level Design
 * Building Classes
@@ -18,29 +19,33 @@ This document contains details of the game design for Nomad.
 
 ----
 ## Overview
-Nomad is a real time strategy game, inspired by Age of Empires, Populous and
-Dungeon Keeper.  The game supports single player and multi-player (LAN) game
-modes.  The game centers around skirmish mode, where players battle against
-each other and computer AI on a procedurally generated or hand-crafted map.
+Nomad is a real time strategy game and god game, inspired by Age of Empires,
+Populous and Dungeon Keeper.  The game supports single player and multi-player
+(LAN) game modes.  The game centers around skirmish mode, where players battle
+against each other and computer AI on a procedurally generated or hand-crafted
+map.
 
 
 ----
 ## Story
 The thousand year storm has ended providing safe passage north.  Many have set
 sail, hoping for new lands and in search of wealth and prosperity, drawn by the
-tales and myths handed down through generations before you.
-None have returned...
+tales and myths handed down through generations before them.
 
-Many didn't make the long and perilous journey, but where they failed, you and
-your small group of explorers have succeeded.  Your boat lands on a strange
-and unfamiliar shore, your fate awaits...
+Many didn't make the long and perilous journey, but where they failed, some
+explorers have succeeded. Their boats landing on a strange and unfamiliar shore.
+
+As they set foot on your island, you reawaken once more...  however the others
+will too...
 
 
 ----
 ## Setting
 The world of nomad is set in a fictional medieval time period.  The game follows
 different populations that have settled in close proximity and are competing
-with each other and struggling to survive and colonize a new land.
+with each other and struggling to survive and colonize a new land.  Each
+population is controlled by one of the islands demigods, rivaling for total
+control.
 
 Each villager must take on different roles and responsibilities to aid in the
 survival of their village.
@@ -50,12 +55,15 @@ constructed, so too, new villagers are born.  These new villagers must train
 in a discipline to help construct and defend the village, and explore the
 surrounding lands.
 
+Your source of power is the mana you receive from the land and the devotion of
+your population.
+
 
 ----
 ## Game play
 At the start of a match, all players enter the same map, and are each given
 control of a different population, which they must lead to total domination over
-the map, by wiping out the other players' population.
+the map, by wiping out the other players' population (skirmish mode).
 
 A player's interactions with the world center around giving their team's units
 orders to carry out. You act as an invisible god over the land and your
@@ -78,6 +86,9 @@ Four resources must be collected, managed and spent by each player:
   - Food may be gathered from the land by hunting animals or fishing via boats.  
     Villagers may also construct farms which produce food at a constant rate.  
     ???Food is required to produce new villagers???
+- Mana
+  - Casting spells costs you mana which regenerates automatically, at a rate
+    influenced by various game factors.
 
 Some implicit, less obvious resources are also:
 - Population
@@ -208,6 +219,49 @@ as an instructor.  When this is done all graduates will have a skill level of
 
 
 ----
+## Spells
+The player can cast numerous spell provided they have enough mana.  Mana is
+generated at a constant rate and can be increased by having villagers build and
+worship in a temple building.  Spells offer a range of passive, offensive and
+defensive effects.
+
+Possible spells that can be cast are:
+* Heal
+  * It must be hard having corporeal form, there are just so many ways to get
+    hurt.  Fix your subjects boo boo in the blink of an eye (if you even have
+    eyes that is).
+* Disease
+  * Slow down your foe with this amazingly infectious plague, I just hope it
+    doesnt find its way back to your village somehow...
+* Speed
+  * Why are your subjects so damn slow.  If only there were some way to make
+    them faster...
+* Terraform
+  * The land is your canvas, build that mountain or valley you have always
+    wanted.
+* Lightning
+  * Cast a bolt of lightning down from the heavens to kill enemy villagers,
+    burn their buildings and start forest fires.
+* Reseed
+  * As a god you have the power to shape the forest.  Reseed any grassland and
+    watch it turn into dense forest before your very eyes.
+* Earthquake
+  * Cause a harsh earthquake in a small radius damaging buildings and delaying
+    all activity for a period of time.
+* Resurrect
+  * You wield the power of life and death with the ability to bring back the
+    dead.  It unfortunate that they are not quite the same (zombified) ...
+* Clone
+  * That villager is amazing, if only there were more of them...
+* Invulnerability
+  * Your puny subjects are just too weak, with this spell you can make them
+    stronger for a period of time.  It comes at a price however (death) ...
+* Reveal
+  * Wouldn't it be nice to see what your foe is up to, or what treasure lies
+    just around the corner.  Lift that pesky Fog of War in a small radius for
+    a limited time.
+
+----
 ## Progression
 Progression occurs by each player expanding their territory across the map,
 while trying to cut off the expansion of their enemies.  Enemy buildings may be
@@ -265,6 +319,9 @@ Many different kinds of buildings may be constructed as part of a village:
 - Store hut
   - As wood, stone and iron resources are gathered they may be deposited in a
     store hut where they will then count towards a player's total resources.
+- Temple
+  - Villagers worshiping you in a temple increase the rate at which your mana
+    accumulates.
 
 > - Docks
     - Villagers may be sent into the docks to produce boats.
@@ -287,6 +344,9 @@ unit or settlement.
 Rally points can also be placed on the map which will cause all units in their
 circle of influence to move to their location.
 
+Another import aspect of any battle is each players arsenal of spells and their
+offensive and defensive capabilities.
+
 > Rally points should have some kind of associated cost perhaps
 
 
@@ -306,6 +366,7 @@ User interface layer:
 - Message stream
 - Currently picked up units
 - Rally point menu
+- Spell menu
 
 User input interactions:
 - Pickup/Drop unit
@@ -313,3 +374,4 @@ User input interactions:
 - Destroy building
 - Scroll view port
 - Place/Remove rally point
+- Cast Spell
